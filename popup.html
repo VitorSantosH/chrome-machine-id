@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Machine ID</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 13px/1.45 ui-sans-serif, system-ui, sans-serif; margin: 0; padding: 14px; width: 260px; }
+  .tag { font: 700 22px/1.1 ui-monospace, Menlo, Consolas, monospace; margin-bottom: 8px; }
+  .row { display: flex; gap: 8px; }
+  .row span:first-child { opacity: .65; min-width: 66px; }
+  .row span:last-child { font-family: ui-monospace, Menlo, Consolas, monospace; }
+  .actions { margin-top: 12px; display: flex; gap: 8px; }
+  button { font: inherit; padding: 5px 9px; cursor: pointer; }
+</style>
+<div class="tag" id="tag">…</div>
+<div class="row"><span>host</span><span id="host"></span></div>
+<div class="row"><span>sistema</span><span id="os"></span></div>
+<div class="row"><span>usuário</span><span id="owner"></span></div>
+<div class="actions">
+  <button id="open">Página completa</button>
+  <button id="opts">Editar</button>
+</div>
+<script src="config.js"></script>
+<script src="popup.js"></script>

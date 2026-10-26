@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Machine ID</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 14px/1.5 ui-sans-serif, system-ui, sans-serif; margin: 0; padding: 24px; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .tag { font: 700 32px/1.1 ui-monospace, Menlo, Consolas, monospace; margin: 12px 0 16px; }
+  table { border-collapse: collapse; width: 100%; max-width: 640px; }
+  th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid rgba(128,128,128,.3); vertical-align: top; }
+  th { width: 160px; font-weight: 600; opacity: .8; }
+  td { font-family: ui-monospace, Menlo, Consolas, monospace; word-break: break-all; }
+  #marker { margin-top: 20px; font-family: ui-monospace, monospace; font-size: 12px; opacity: .7; }
+</style>
+<h1>Machine ID</h1>
+<div class="tag" id="tag">…</div>
+<table>
+  <tr><th>Hostname</th><td id="host"></td></tr>
+  <tr><th>Sistema</th><td id="os"></td></tr>
+  <tr><th>Usuário</th><td id="owner"></td></tr>
+  <tr><th>Plataforma (Chrome)</th><td id="plat"></td></tr>
+  <tr><th>User agent</th><td id="ua"></td></tr>
+  <tr><th>Fuso horário</th><td id="tz"></td></tr>
+  <tr><th>Resolução</th><td id="res"></td></tr>
+  <tr><th>ID da extensão</th><td id="extid"></td></tr>
+</table>
+<div id="marker"></div>
+<script src="config.js"></script>
+<script src="id.js"></script>

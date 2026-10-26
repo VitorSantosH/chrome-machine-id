@@ -1,0 +1,38 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Machine ID — opções</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 14px/1.5 ui-sans-serif, system-ui, sans-serif; margin: 0; padding: 24px; max-width: 480px; }
+  h1 { font-size: 18px; margin: 0 0 16px; }
+  label { display: block; margin: 12px 0 4px; font-weight: 600; }
+  input[type=text], select { width: 100%; padding: 6px 8px; font: inherit; box-sizing: border-box; }
+  input[type=color] { width: 56px; height: 32px; padding: 0; }
+  .inline { display: flex; align-items: center; gap: 8px; }
+  button { margin-top: 18px; font: inherit; padding: 7px 14px; cursor: pointer; }
+  #status { margin-left: 10px; opacity: .75; }
+</style>
+<h1>Identidade desta máquina</h1>
+<label for="tag">Tag (aparece no badge)</label>
+<input type="text" id="tag" placeholder="PC-CASA">
+<label for="host">Hostname</label>
+<input type="text" id="host" placeholder="pc-casa">
+<label for="os">Sistema operacional</label>
+<input type="text" id="os" placeholder="Ubuntu 26.04 LTS">
+<label for="owner">Usuário</label>
+<input type="text" id="owner" placeholder="vitor">
+<label for="color">Cor do badge</label>
+<div class="inline"><input type="color" id="color"></div>
+<label for="position">Posição do badge</label>
+<select id="position">
+  <option value="bottom-right">inferior direita</option>
+  <option value="bottom-left">inferior esquerda</option>
+  <option value="top-right">superior direita</option>
+  <option value="top-left">superior esquerda</option>
+</select>
+<label class="inline" style="margin-top:14px">
+  <input type="checkbox" id="showBadge"> Exibir badge nas páginas
+</label>
+<div><button id="save">Salvar</button><span id="status"></span></div>
+<script src="config.js"></script>
+<script src="options.js"></script>
