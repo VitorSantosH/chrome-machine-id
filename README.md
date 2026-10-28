@@ -15,6 +15,7 @@ Máquina configurada por padrão: **PC-CASA** · pc-casa · Ubuntu 26.04 LTS · 
   user agent, fuso e resolução.
 - Insere em cada página um marcador textual invisível
   `<<<MACHINE-ID>>> tag=… host=… os=… owner=…`, legível por extração de texto.
+  O marcador existe mesmo com o badge visual desligado.
 
 ## Instalar (Chrome no Ubuntu)
 
