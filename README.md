@@ -3,7 +3,8 @@
 Extensão Chrome (MV3) que marca visualmente o navegador com o nome da máquina, para
 diferenciar sessões quando há vários Chromes conectados na mesma conta.
 
-Máquina configurada por padrão: **PC-CASA** · pc-casa · Ubuntu 26.04 LTS · vitor
+Sistema operacional, arquitetura e versão do Chrome são detectados sozinhos. Hostname e
+usuário o Chrome não expõe a extensões; esses (e a tag) se preenchem em **Editar**.
 
 ## O que ela faz
 
@@ -30,10 +31,10 @@ Para conferir a identidade: clique no ícone → **Página completa**, ou abra
 ## Configurar outra máquina
 
 Instale a mesma pasta no outro Chrome e edite pelo ícone → **Editar**
-(tag, hostname, SO, usuário, cor e posição do badge). Uma cor por máquina deixa a
-diferença óbvia em captura de tela. Os valores ficam em `chrome.storage.sync`.
-
-Para mudar o padrão de fábrica, edite `MACHINE_DEFAULTS` em `config.js`.
+(tag, hostname, SO, usuário, cor e posição do badge). Campo em branco usa o valor
+detectado, mostrado como placeholder. Uma cor por máquina deixa a diferença óbvia em
+captura de tela. Os valores salvos ficam em `chrome.storage.sync`; os detectados, em
+`chrome.storage.local`.
 
 ## Arquivos
 

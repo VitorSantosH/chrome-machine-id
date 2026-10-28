@@ -20,7 +20,7 @@
   marker.id = MARKER_ID;
   marker.setAttribute("data-machine-id", m.tag);
   marker.style.cssText = "position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);";
-  marker.textContent = `${MACHINE_MARKER} tag=${m.tag} host=${m.host} os=${m.os} owner=${m.owner}`;
+  marker.textContent = `${MACHINE_MARKER} tag=${m.tag} host=${m.host} os=${m.os} owner=${m.owner} arch=${m.arch || ""} browser=${m.browser || ""}`;
   mount(marker);
 
   if (!m.showBadge) return;
