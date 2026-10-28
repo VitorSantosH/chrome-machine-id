@@ -9,6 +9,18 @@ async function paintActionBadge() {
   await chrome.action.setTitle({ title: `Machine ID: ${m.tag} · ${m.host} · ${m.os}` });
 }
 
-chrome.runtime.onInstalled.addListener(paintActionBadge);
-chrome.runtime.onStartup.addListener(paintActionBadge);
-chrome.storage.onChanged.addListener(paintActionBadge);
+// Atualiza o que foi detectado (SO, arquitetura, versão do Chrome) e repinta o ícone.
+async function refresh() {
+  try {
+    await detectMachine();
+  } catch (e) {
+    // sem detecção: mantém o que já estava salvo.
+  }
+  await paintActionBadge();
+}
+
+chrome.runtime.onInstalled.addListener(refresh);
+chrome.runtime.onStartup.addListener(refresh);
+chrome.storage.onChanged.addListener((changes, area) => {
+  if (area === "sync") paintActionBadge();
+});

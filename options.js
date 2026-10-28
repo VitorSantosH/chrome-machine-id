@@ -1,9 +1,22 @@
 const FIELDS = ["tag", "host", "os", "owner", "color", "position"];
+const TEXT_FIELDS = ["tag", "host", "os", "owner"];
 
 (async () => {
-  const m = await loadMachine();
-  FIELDS.forEach((f) => (document.getElementById(f).value = m[f]));
-  document.getElementById("showBadge").checked = !!m.showBadge;
+  let detected = {};
+  try {
+    detected = await detectMachine();
+  } catch (e) {
+    // sem detecção: placeholders ficam vazios.
+  }
+
+  // Mostra só o que foi salvo; o detectado aparece como placeholder (campo em branco = automático).
+  const saved = await chrome.storage.sync.get(MACHINE_DEFAULTS);
+  FIELDS.forEach((f) => (document.getElementById(f).value = saved[f]));
+  document.getElementById("showBadge").checked = !!saved.showBadge;
+  TEXT_FIELDS.forEach((f) => {
+    const el = document.getElementById(f);
+    el.placeholder = detected[f] ? `automático: ${detected[f]}` : "não detectável — preencha";
+  });
 
   document.getElementById("save").addEventListener("click", async () => {
     const data = { showBadge: document.getElementById("showBadge").checked };

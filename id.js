@@ -1,4 +1,5 @@
 (async () => {
+  try { await detectMachine(); } catch (e) {}
   const m = await loadMachine();
   const set = (id, v) => (document.getElementById(id).textContent = v);
 
@@ -6,13 +7,14 @@
   set("host", m.host);
   set("os", m.os);
   set("owner", m.owner);
+  set("browser", m.browser || "indisponível");
   set("ua", navigator.userAgent);
   set("tz", Intl.DateTimeFormat().resolvedOptions().timeZone);
   set("res", `${screen.width}x${screen.height} @ ${window.devicePixelRatio}x`);
   set("extid", chrome.runtime.id);
 
   document.title = `Machine ID: ${m.tag} — ${m.os}`;
-  set("marker", `${MACHINE_MARKER} tag=${m.tag} host=${m.host} os=${m.os} owner=${m.owner}`);
+  set("marker", `${MACHINE_MARKER} tag=${m.tag} host=${m.host} os=${m.os} owner=${m.owner} arch=${m.arch || ""} browser=${m.browser || ""}`);
 
   try {
     const info = await chrome.runtime.getPlatformInfo();
